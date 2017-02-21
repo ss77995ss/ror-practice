@@ -6,6 +6,9 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -13,11 +16,21 @@ Lint/DeprecatedClassMethods:
   Exclude:
     - 'config/boot.rb'
 
+# Offense count: 1
+Metrics/AbcSize:
+  Exclude:
+    - 'lib/stock_api.rb'
+
 # Offense count: 28
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
 Metrics/LineLength:
   Max: 169
+
+# Offense count: 3
+# Configuration parameters: CountComments.
+Metrics/MethodLength:
+  Enabled: false
 
 # Offense count: 1
 # Configuration parameters: EnforcedStyle, SupportedStyles.
@@ -26,14 +39,9 @@ Style/ClassAndModuleChildren:
   Exclude:
     - 'test/test_helper.rb'
 
-# Offense count: 3
+# Offense count: 6
 Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/controllers/application_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'config/application.rb'
+  Enabled: false
 
 # Offense count: 4
 # Cop supports --auto-correct.

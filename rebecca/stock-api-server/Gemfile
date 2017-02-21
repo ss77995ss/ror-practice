@@ -22,6 +22,7 @@ end
 gem 'jquery-rails'
 gem 'nokogiri', '~> 1.7.0.1'
 gem 'rubocop', '~> 0.47.1', require: false
+gem 'rufus-scheduler', '~> 3.3.4'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

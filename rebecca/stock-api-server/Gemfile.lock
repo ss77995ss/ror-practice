@@ -92,6 +92,8 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
+    rufus-scheduler (3.3.4)
+      tzinfo
     sass (3.4.23)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -122,6 +124,7 @@ DEPENDENCIES
   nokogiri (~> 1.7.0.1)
   rails (= 3.2.22.1)
   rubocop (~> 0.47.1)
+  rufus-scheduler (~> 3.3.4)
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)

@@ -36,17 +36,24 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+# Use nokogiti to parse html
 gem 'nokogiri'
 
+# Use rubocop to unify coding style
 gem 'rubocop', '~> 0.47.1', require: false
 
+# Use font-awesome for view
 gem 'font-awesome-sass'
 
-gem 'autoprefixer-rails'
+# gem 'autoprefixer-rails'
 
+# Use bootstrap for view
 gem 'bootstrap-sass', '~> 3.2.0'
 
 group :test, :development do
+  # Use factory_girl_rails to setup Ruby objects as test data
   gem 'factory_girl_rails', '~> 4.0'
+
+  # test framework for rails
   gem 'rspec-rails', '~> 3.5'
 end

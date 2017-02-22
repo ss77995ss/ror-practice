@@ -1,3 +1,70 @@
 // Place all the styles related to the turnovers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+body {
+  font-family: Quicksand;
+  font-size: 14px;
+  letter-spacing: 2px;
+  .blue {
+    color: rgb(12, 12, 255);
+  }
+  .up {
+    color: rgb(236, 1, 140);
+  }
+  .down {
+    color: rgb(19, 161, 19);
+  }
+  .turnovers {
+    margin-left: 20px;
+    width: 1062px;
+    .search {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      input {
+        padding: 4px 10px;
+        border: solid #000 1px;
+        border-radius: 4px;
+        margin-left: 10px;
+        letter-spacing: 2px;
+      }
+      .number, .date {
+        border: solid #000 1px;
+        border-radius: 4px;
+        width: 150px;
+        line-height: 25px;
+      }
+      .searchNumber {
+        margin-bottom: 10px;
+        form {
+          display: inline-block;
+        }
+        .numberInput {
+          width: 100px;
+        }
+      }
+      .searchDate {
+        form {
+          display: inline-block;
+        }
+        .dateInput {
+          width: 130px;
+        }
+      }
+    }
+    table {
+      thead tr th {
+        font-size: 16px;
+      }
+      .id {
+        width: 60px;
+      }
+      .number, .name, .opening_price, .highest_price, .lowest_price, .closing_yesterday, .closing_today, .volumn, .quote_change, .change, {
+        width: 100px;
+      }
+    }
+  }
+}

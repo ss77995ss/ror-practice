@@ -34,4 +34,9 @@ AutoStockServer::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # automatically update data
+  config.after_initialize do
+    Turnover.insert_to_db if Turnover.check_for_insert_turnovers
+  end
 end

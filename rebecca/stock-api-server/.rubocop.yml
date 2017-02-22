@@ -20,6 +20,7 @@ Lint/DeprecatedClassMethods:
 Metrics/AbcSize:
   Exclude:
     - 'lib/stock_api.rb'
+    - 'app/controllers/stock_controller.rb'
 
 # Offense count: 28
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.

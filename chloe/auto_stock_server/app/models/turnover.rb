@@ -8,7 +8,7 @@ class Turnover < ActiveRecord::Base
   def self.insert_to_db
     turnovers = Crawler.crawl_turnovers
 
-    if turnovers
+    if !turnovers.empty?
       turnovers.each { |turnover| Turnover.create(turnover) }
     else
       puts ' No data to insert '
@@ -20,10 +20,10 @@ class Turnover < ActiveRecord::Base
     date_now = Time.new.in_time_zone.to_date.to_s
     last_data = Turnover.last
 
-    if last_data
-      date_data = last_data[:date]
+    if !last_data.blank?
+      date_last_data = last_data[:date]
 
-      if date_now == date_data
+      if date_now == date_last_data
         puts ' Data is same '
         false
       else

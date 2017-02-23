@@ -1,11 +1,11 @@
 class TurnoversController < ApplicationController
   def index
     @turnovers =
-      if params[:date] && params[:number]
+      if !params[:date].blank? && !params[:number].blank?
         Turnover.where(number: params[:number], date: params[:date])
-      elsif params[:date]
+      elsif !params[:date].blank?
         Turnover.where(date: params[:date])
-      elsif params[:number]
+      elsif !params[:number].blank?
         Turnover.where(number: params[:number])
         # Turnover.where(['number like ?', '%#{params[:number]}%'])
       else

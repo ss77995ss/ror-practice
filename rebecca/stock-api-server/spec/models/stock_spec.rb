@@ -83,4 +83,14 @@ RSpec.describe 'Stock', type: :model do
       end
     end
   end
+
+  describe '.to_csv' do
+    it 'should put data into csv format' do
+      create(:stock)
+      result = Stock.to_csv
+
+      expect(result).to include('rank,stock_code,stock_name,opening_price,highest_price,lowest_price,ytd_closing_price,closing_price,turnover,change,change_range')
+      expect(result).to include('1,9999,Datong,25.0,26.45,25.0,24.05,26.45,73773,2.4,9.98')
+    end
+  end
 end

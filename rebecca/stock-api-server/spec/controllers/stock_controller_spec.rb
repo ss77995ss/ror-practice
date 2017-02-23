@@ -24,6 +24,12 @@ RSpec.describe StockController, type: :controller do
       expect(response).to be_success
       expect(response).to render_template('index')
     end
+
+    it 'generate csv format' do
+      get :index, format: :csv
+
+      expect(response.header['Content-Type']).to include('application/octet-stream')
+    end
   end
 
   describe 'GET search' do

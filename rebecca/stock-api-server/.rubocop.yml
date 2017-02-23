@@ -18,6 +18,10 @@ Lint/DeprecatedClassMethods:
   Exclude:
     - 'config/boot.rb'
 
+Lint/UselessAssignment:
+  Exclude:
+    - 'spec/controllers/stock_controller_spec.rb'
+
 Metrics/BlockLength:
   Enabled: false
 

@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :stock do
     rank 1
-    stock_code 9999
+    stock_code '9999'
     stock_name 'Datong'
     opening_price 25.00
     highest_price 26.45

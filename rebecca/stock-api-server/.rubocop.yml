@@ -9,12 +9,17 @@
 AllCops:
   Exclude:
     - 'db/schema.rb'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 Lint/DeprecatedClassMethods:
   Exclude:
     - 'config/boot.rb'
+
+Metrics/BlockLength:
+  Enabled: false
 
 # Offense count: 1
 Metrics/AbcSize:
@@ -60,6 +65,10 @@ Style/ExtraSpacing:
 Style/HashSyntax:
   Exclude:
     - 'config/application.rb'
+
+
+Style/NumericLiterals:
+  Enabled: false
 
 # Offense count: 1
 # Cop supports --auto-correct.

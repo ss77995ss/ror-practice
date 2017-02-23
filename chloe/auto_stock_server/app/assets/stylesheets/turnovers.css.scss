@@ -24,34 +24,21 @@ body {
     .search {
       margin-top: 20px;
       margin-bottom: 20px;
-      input {
-        padding: 4px 10px;
-        border: solid #000 1px;
-        border-radius: 4px;
-        margin-left: 10px;
-        letter-spacing: 2px;
-      }
-      .number, .date {
-        border: solid #000 1px;
-        border-radius: 4px;
-        width: 150px;
-        line-height: 25px;
-      }
-      .searchNumber {
-        margin-bottom: 10px;
-        form {
-          display: inline-block;
+      form {
+        input {
+          padding: 4px 10px;
+          border: solid #000 1px;
+          border-radius: 4px;
+          letter-spacing: 2px;
         }
         .numberInput {
           width: 100px;
         }
-      }
-      .searchDate {
-        form {
-          display: inline-block;
-        }
         .dateInput {
-          width: 130px;
+          width: 140px;
+        }
+        .dateLabel, .searchBtn {
+          margin-left: 20px;
         }
       }
     }

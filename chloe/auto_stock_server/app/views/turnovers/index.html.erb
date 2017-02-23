@@ -1,25 +1,22 @@
 <div ng-app='turnoversApp' class='turnovers'>
   <div class='search'>
-    <div class='searchNumber'>
-      搜尋代號 ：
-      <!-- <input id='searchNumber' type='number' min='0'> -->
-      <!-- <button>search</button> -->
-      <!-- <button><%= link_to 'search', turnovers_path %></button> -->
-      <%= form_tag turnovers_path, :method => :get do %>
-        <%= number_field_tag "number",0, min: 0, class: 'numberInput' %>
-        <%= submit_tag "search" %>
-      <% end %>
-    </div>
-    <div class='searchDate'>
-      搜尋日期 ：
-      <!-- <input id='searchDate' type='date'> -->
-      <!-- <button>search</button> -->
-      <!-- <button><%= link_to 'search', turnovers_path %></button> -->
-      <%= form_tag turnovers_path, :method => :get do %>
-        <%= text_field_tag 'date', '02/19/2017', class: 'dateInput' %>
-        <%= submit_tag "search" %>
-      <% end %>
-    </div>
+    <!-- 搜尋代號 ： -->
+    <!-- <input id='searchNumber' type='number' min='0'> -->
+    <!-- <button>search</button> -->
+    <!-- <button><%= link_to 'search', turnovers_path %></button> -->
+
+    <!-- 搜尋日期 ： -->
+    <!-- <input id='searchDate' type='date'> -->
+    <!-- <button>search</button> -->
+    <!-- <button><%= link_to 'search', turnovers_path %></button> -->
+
+    <%= form_tag turnovers_path, :method => :get do %>
+      <%= label_tag '搜尋代號 ：', nil, class: 'numberLabel' %>
+      <%= number_field_tag "number",'', min: 0, class: 'numberInput' %>
+      <%= label_tag '搜尋日期 ：', nil, class: 'dateLabel' %>
+      <%= text_field_tag 'date', Time.new.in_time_zone.to_date.to_s, class: 'dateInput' %>
+      <%= submit_tag "search", class: 'searchBtn' %>
+    <% end %>
   </div>
   <table class='table table-bordered table-striped table-hover'>
     <thead>

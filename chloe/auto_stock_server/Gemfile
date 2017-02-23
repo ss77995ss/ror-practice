@@ -51,6 +51,9 @@ gem 'font-awesome-sass'
 gem 'bootstrap-sass', '~> 3.2.0'
 
 group :test, :development do
+  # Use capybara to simulate the browser behavior for view test
+  gem 'capybara', '2.12.0'
+
   # Use factory_girl_rails to setup Ruby objects as test data
   gem 'factory_girl_rails', '~> 4.0'
 

@@ -3,6 +3,12 @@ class StockController < ApplicationController
     @stocks = Stock
               .where('date(created_at) = ?', Date.today)
               .order("#{params[:sort]} #{params[:direction]}")
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @stocks.to_json }
+      format.csv { send_data @stocks.to_csv }
+    end
   end
 
   def search

@@ -18,4 +18,16 @@ class Stock < ActiveRecord::Base
       end
     end
   end
+
+  def self.to_csv
+    attributes = %w(rank stock_code stock_name opening_price highest_price lowest_price ytd_closing_price closing_price turnover change change_range)
+
+    CSV.generate do |csv|
+      csv << attributes
+
+      all.each do |stock|
+        csv << attributes.map { |attr| stock.send(attr) }
+      end
+    end
+  end
 end

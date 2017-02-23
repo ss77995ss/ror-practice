@@ -8,4 +8,10 @@ module StockHelper
       content_tag(:td, '▲' + change.to_s, class: 'text-red')
     end
   end
+
+  def sort_link(column, title = nil)
+    title ||= column
+    direction = params[:direction] == 'desc' ? 'asc' : 'desc'
+    link_to title, params.merge(sort: column, direction: direction, date: params[:date], code: params[:code])
+  end
 end

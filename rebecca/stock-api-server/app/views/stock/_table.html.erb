@@ -1,16 +1,16 @@
 <table class="table">
   <tr>
-    <th class="text-center">排名</th>
-    <th>代號</th>
-    <th>名稱</th>
-    <th>開盤價</th>
-    <th>最高價</th>
-    <th>最低價</th>
-    <th>昨收盤</th>
-    <th>今收盤</th>
-    <th>成交量</th>
-    <th>漲跌</th>
-    <th>漲跌幅</th>
+    <th class="text-center"><%= sort_link(:rank, '排名') %></th>
+    <th><%= sort_link(:stock_code, '代號') %></th>
+    <th><%= sort_link(:stock_name, '名稱') %></th>
+    <th><%= sort_link(:opening_price, '開盤價') %></th>
+    <th><%= sort_link(:highest_price, '最高價') %></th>
+    <th><%= sort_link(:lowest_price, '最低價') %></th>
+    <th><%= sort_link(:ytd_closing_price, '昨收盤') %></th>
+    <th><%= sort_link(:closing_price, '今收盤') %></th>
+    <th><%= sort_link(:turnover, '成交量') %></th>
+    <th><%= sort_link(:change, '漲跌') %></th>
+    <th><%= sort_link(:change_range, '漲跌幅') %></th>
   </tr>
 
   <% @stocks.each do |stock| %>

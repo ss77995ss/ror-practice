@@ -2,12 +2,14 @@ require 'rufus-scheduler'
 
 s = Rufus::Scheduler.singleton
 
-s.in '1s' do
-  Stock.load_data
-end
+if ENV['RAILS_ENV'] == 'development' || ENV['RAILS_ENV'] == 'production'
+  s.in '1s' do
+    Stock.load_data
+  end
 
-s.every '1d' do
-  Stock.load_data
+  s.every '1d' do
+    Stock.load_data
+  end
 end
 
 def s.on_error(job, error)

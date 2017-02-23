@@ -23,6 +23,7 @@ group :test, :development do
   gem 'rspec-rails'
 end
 
+gem 'capybara', '~> 2.12.1'
 gem 'factory_girl_rails', '~> 4.0'
 gem 'jquery-rails'
 gem 'nokogiri', '~> 1.7.0.1'

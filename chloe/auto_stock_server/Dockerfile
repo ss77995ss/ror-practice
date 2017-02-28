@@ -7,6 +7,7 @@ RUN apt-get update
 RUN apt-get install sudo -y
 RUN sudo apt-get install nodejs -y
 RUN apt-get install vim -y
+RUN apt-get install cron -y
 
 # Create project directory
 RUN mkdir -p /auto_stock_server
@@ -16,9 +17,9 @@ WORKDIR /auto_stock_server
 ADD ./build.sh /auto_stock_server
 RUN /bin/bash -c "./build.sh"
 
-#COPY Gemfile* ./
-#RUN bundle install
-#COPY . .
+# For docker volume first
+COPY Gemfile* ./
+RUN sudo bundle install
 
 EXPOSE 3000
 

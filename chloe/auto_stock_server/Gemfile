@@ -50,6 +50,9 @@ gem 'font-awesome-sass'
 # Use bootstrap for view
 gem 'bootstrap-sass', '~> 3.2.0'
 
+# Cron job in Ruby
+gem 'whenever', require: false
+
 group :test, :development do
   # Use capybara to simulate the browser behavior for view test
   gem 'capybara', '2.12.0'

@@ -1,61 +1,44 @@
-<div ng-app='turnoversApp' class='turnovers'>
+<div class='turnovers' ng-app='turnoversApp' ng-controller='TurnoverCtrl'>
   <div class='search'>
-    <!-- 搜尋代號 ： -->
-    <!-- <input id='searchNumber' type='number' min='0'> -->
-    <!-- <button>search</button> -->
-    <!-- <button><%= link_to 'search', turnovers_path %></button> -->
+    <form>
+      <label class='numberLabel'>搜尋代號 ：</label>
+      <input id='numberInput' class='numberInput' type='number' min='0' ng-model='number'>
 
-    <!-- 搜尋日期 ： -->
-    <!-- <input id='searchDate' type='date'> -->
-    <!-- <button>search</button> -->
-    <!-- <button><%= link_to 'search', turnovers_path %></button> -->
-
-    <%= form_tag turnovers_path, :method => :get do %>
-      <%= label_tag '搜尋代號 ：', nil, class: 'numberLabel' %>
-      <%= number_field_tag "number",'', min: 0, class: 'numberInput' %>
-      <%= label_tag '搜尋日期 ：', nil, class: 'dateLabel' %>
-      <%= text_field_tag 'date', Time.new.in_time_zone.to_date.to_s, class: 'dateInput' %>
-      <%= submit_tag "search", class: 'searchBtn' %>
-    <% end %>
+      <label class='dateLabel'>搜尋日期 ：</label>
+      <input id='dateInput' class='dateInput' type='date' ng-model='date'>
+      <button class='searchBtn' ng-click='search()'>search</button>
+    </form>
   </div>
   <table class='table table-bordered table-striped table-hover'>
     <thead>
       <tr>
-        <th class='id text-center'>排 <i class='fa fa-caret-down' aria-hidden='true'></th>
+        <th class='id text-center'>排</th>
         <th class='number text-center'>代號 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
-        <th class='name text-center'>名稱 <i class='fa fa-caret-down' aria-hidden='true'></th>
-        <th class='opening_price text-center'>開盤價 <i class='fa fa-caret-down' aria-hidden='true'></th>
-        <th class='highest_price text-center'>最高價 <i class='fa fa-caret-down' aria-hidden='true'></th>
-        <th class='lowest_price text-center'>最低價 <i class='fa fa-caret-down' aria-hidden='true'></th>
-        <th class='closing_yesterday text-center'>昨收盤 <i class='fa fa-caret-down' aria-hidden='true'></th>
-        <th class='closing_today text-center'>今收盤 <i class='fa fa-caret-down' aria-hidden='true'></th>
-        <th class='volumn text-center'>成交量 <i class='fa fa-caret-down' aria-hidden='true'></th>
-        <th class='change text-center'>漲跌 <i class='fa fa-caret-down' aria-hidden='true'></th>
-        <th class='quote_change text-center'>漲跌幅 <i class='fa fa-caret-down' aria-hidden='true'></th>
+        <th class='name text-center'>名稱 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
+        <th class='opening_price text-center'>開盤價 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
+        <th class='highest_price text-center'>最高價 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
+        <th class='lowest_price text-center'>最低價 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
+        <th class='closing_yesterday text-center'>昨收盤 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
+        <th class='closing_today text-center'>今收盤 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
+        <th class='volumn text-center'>成交量 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
+        <th class='change text-center'>漲跌 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
+        <th class='quote_change text-center'>漲跌幅 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
       </tr>
     </thead>
     <tbody>
-      <% @turnovers.each_with_index do |turnover, index| %>
-        <tr>
-          <td class='id text-center'><%= index + 1 %></td>
-          <td class='number text-center'><%= turnover[:number] %></td>
-          <td class='name text-center'><%= link_to(turnover[:name], turnover[:hyper_link]) %></td>
-          <td class='opening_price text-center'><%= turnover[:opening_price] %></td>
-          <td class='highest_price text-center'><%= turnover[:highest_price] %></td>
-          <td class='lowest_price text-center'><%= turnover[:lowest_price] %></td>
-          <td class='closing_yesterday text-center'><%= turnover[:closing_yesterday] %></td>
-          <td class='closing_today text-center'><%= turnover[:closing_today] %></td>
-          <td class='volumn blue text-center'><%= turnover[:volumn] %></td>
-          <% if turnover[:change].split('')[0] == '-' %>
-            <td class='change down text-center'>▼<%= turnover[:change].split('-').join('') %></td>
-          <% elsif turnover[:change].to_f == 0 %>
-            <td class='change text-center'><%= turnover[:change] %></td>
-          <% else %>
-            <td class='change up text-center'>▲<%= turnover[:change] %></td>
-          <% end %>
-          <td class='quote_change text-center'><%= turnover[:quote_change] %></td>
-        </tr>
-      <% end %>
+      <tr ng-repeat='turnover in turnovers'>
+        <td class='id text-center'>{{ $index + 1 }}</td>
+        <td class='number text-center'>{{ turnover.number }}</td>
+        <td class='name text-center'><a ng-href='{{ turnover.hyper_link }}'>{{ turnover.name }}</a></td>
+        <td class='opening_price text-center'>{{ turnover.opening_price }}</td>
+        <td class='highest_price text-center'>{{ turnover.highest_price }}</td>
+        <td class='lowest_price text-center'>{{ turnover.lowest_price }}</td>
+        <td class='closing_yesterday text-center'>{{ turnover.closing_yesterday }}</td>
+        <td class='closing_today text-center'>{{ turnover.closing_today }}</td>
+        <td class='volumn blue text-center'>{{ turnover.volumn }}</td>
+        <td class='change text-center {{turnover.colorClass}}'>{{ turnover.symbol }}{{ turnover.changeNum }}</td>
+        <td class='quote_change text-center'>{{ turnover.quote_change }}</td>
+      </tr>
     </tbody>
   </table>
 </div>

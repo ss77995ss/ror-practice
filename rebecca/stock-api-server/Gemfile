@@ -23,6 +23,7 @@ group :test, :development do
   gem 'rspec-rails'
 end
 
+gem 'angularjs-rails', '~> 1.2.26'
 gem 'capybara', '~> 2.12.1'
 gem 'factory_girl_rails', '~> 4.0'
 gem 'jquery-rails'

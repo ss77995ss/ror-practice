@@ -29,7 +29,7 @@ describe 'crawler API' do
       it { expect(subject[:closing_yesterday]).to be_instance_of(Float) }
       it { expect(subject[:closing_today]).to be_instance_of(Float) }
       it { expect(subject[:volumn]).to be_kind_of(Integer) }
-      it { expect(subject[:change]).to be_instance_of(String) }
+      it { expect(subject[:change]).to be_instance_of(Float) }
       it { expect(subject[:quote_change]).to be_instance_of(String) }
       it { expect(subject[:date]).to be_instance_of(String) }
     end
@@ -53,7 +53,6 @@ describe 'crawler API' do
 
         subject { Crawler.crawl_turnovers[1] }
         it { expect(subject[:change].to_f).to be < 0.0 }
-        it { expect(subject[:change].split('')[0]).to eq('-') }
       end
 
       context 'when it is not both red and green' do

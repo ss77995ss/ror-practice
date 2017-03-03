@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20170222020054) do
     t.float    "closing_yesterday"
     t.float    "closing_today"
     t.integer  "volumn"
-    t.string   "change"
+    t.float    "change"
     t.string   "quote_change"
     t.string   "date"
     t.datetime "created_at",        :null => false

@@ -10,7 +10,7 @@ class CreateTurnovers < ActiveRecord::Migration
       t.float :closing_yesterday
       t.float :closing_today
       t.integer :volumn
-      t.string :change
+      t.float :change
       t.string :quote_change
       t.string :date
 

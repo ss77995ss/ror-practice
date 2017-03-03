@@ -37,7 +37,7 @@ class Crawler
         closing_yesterday: childs[6].text.gsub(/[[:space:]]/, '').to_f,
         closing_today: childs[7].text.gsub(/[[:space:]]/, '').to_f,
         volumn: childs[8].text.gsub(/[[:space:]]/, '').split(',').join.to_i,
-        change: change,
+        change: change.to_f,
         quote_change: childs[10].text.gsub(/[[:space:]]/, '').to_s,
         date: Time.new.in_time_zone.to_date.to_s
       }

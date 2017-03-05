@@ -13,16 +13,16 @@
     <thead>
       <tr>
         <th class='id text-center'>排</th>
-        <th class='number text-center'>代號 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
-        <th class='name text-center'>名稱 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
-        <th class='opening_price text-center'>開盤價 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
-        <th class='highest_price text-center'>最高價 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
-        <th class='lowest_price text-center'>最低價 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
-        <th class='closing_yesterday text-center'>昨收盤 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
-        <th class='closing_today text-center'>今收盤 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
-        <th class='volumn text-center'>成交量 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
-        <th class='change text-center'>漲跌 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
-        <th class='quote_change text-center'>漲跌幅 <i class='fa fa-caret-down' aria-hidden='true'></i></th>
+        <th class='number text-center'>代號 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('number')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('number')" ng-show='asc' ng-hide='!asc'></i></button></th>
+        <th class='name text-center'>名稱 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('name')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('name')" ng-show='asc' ng-hide='!asc'></i></button></th>
+        <th class='opening_price text-center'>開盤價 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('opening_price')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('opening_price')" ng-show='asc' ng-hide='!asc'></i></button></th>
+        <th class='highest_price text-center'>最高價 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('highest_price')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('highest_price')" ng-show='asc' ng-hide='!asc'></i></button></th>
+        <th class='lowest_price text-center'>最低價 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('lowest_price')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('lowest_price')" ng-show='asc' ng-hide='!asc'></i></button></th>
+        <th class='closing_yesterday text-center'>昨收盤 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('closing_yesterday')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('closing_yesterday')" ng-show='asc' ng-hide='!asc'></i></button></th>
+        <th class='closing_today text-center'>今收盤 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('closing_today')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('closing_today')" ng-show='asc' ng-hide='!asc'></i></button></th>
+        <th class='volumn text-center'>成交量 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('volumn')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('volumn')" ng-show='asc' ng-hide='!asc'></i></button></th>
+        <th class='change text-center'>漲跌 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('change')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('change')" ng-show='asc' ng-hide='!asc'></i></button></th>
+        <th class='quote_change text-center'>漲跌幅 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('quote_change')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('quote_change')" ng-show='asc' ng-hide='!asc'></i></button></th>
       </tr>
     </thead>
     <tbody>

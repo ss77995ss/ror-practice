@@ -1,5 +1,6 @@
 AutoStockServer::Application.routes.draw do
   resources :turnovers, only: [:index]
+  root to: 'turnovers#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -12,11 +12,13 @@ branches:
   only:
     - dev/wayne
 
-before_script:
-  - bundle install --without production
-  - psql -c 'create database stock_api_server_test;' -U postgres
+install:
   # go to project folder
   - cd ./wayne/stock_api_server/
+  - bundle install --without production
+
+before_script:
+  - psql -c 'create database stock_api_server_test;' -U postgres    
   # change the db connection
   - cp config/database.travis.yml config/database.yml
   - cat config/database.yml

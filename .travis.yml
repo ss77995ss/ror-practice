@@ -10,6 +10,7 @@ rvm:
 
 services:
   - postgresql
+
 addons:
   postgresql: '9.6'
 
@@ -17,14 +18,14 @@ branches:
   only:
     - dev/wayne
 
-before_install:
+before_script:
+  - psql -c 'create database stock_api_server_test;' -U postgres
   # go to project folder
   - cd ./wayne/stock_api_server/
+  # change the db connection
   - cp config/database.travis.yml config/database.yml
-
-before_script:
-  - cp config/database.travis.yml config/database.yml
-  - bundle exec rake db:drop db:create db:migrate RAILS_ENV=test
+  - cat config/database.yml
+  - bundle exec rake db:migrate RAILS_ENV=test
 
 script:
   - bundle exec rspec spec

@@ -1,9 +1,6 @@
-sudo: required
-
 language: ruby
 
-cache:
-  bundler: true
+cache: bundler
 
 rvm:
   - 2.1.5
@@ -16,6 +13,7 @@ branches:
     - dev/wayne
 
 before_script:
+  - bundle install --without production
   - psql -c 'create database stock_api_server_test;' -U postgres
   # go to project folder
   - cd ./wayne/stock_api_server/

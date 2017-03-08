@@ -2,11 +2,14 @@ sudo: required
 
 language: ruby
 
+rvm:
+  - 2.3
+
 services:
   - docker
 
 env:
-  DOCKER_COMPOSE_VERSION: 1.11.2
+  - DOCKER_COMPOSE_VERSION: 1.11.2
 
 branches:
   only:
@@ -19,17 +22,26 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   # show version
-  - docker version
-  - docker-compose version
-  # go into project folder
+  - docker -v
+  - docker-compose -v
 
-before_script:
-  # go into project folder
+install:
+  # go to project folder
   - cd ./wayne/stock_api_server/
   - docker-compose build
-  - docker-compose up -d
 
-script:
+before_script:
+  # '-f' Specify an alternate compose file (default: docker-compose.yml)
+  # You can supply multiple '-f'' configuration files. 
+  # When you supply multiple files, Compose combines them into a single configuration. 
+  - docker-compose -f docker-compose.yml -f docker-compose.ci.yml up -d
   - docker ps
   - docker-compose run web rake db:create db:migrate RAILS_ENV=test
+
+script:
+  # run unit test
   - docker-compose run web bundle exec rspec spec
+
+after_script:
+  - docker-compose logs > ./log/docker-ci.log
+  - docker-compose down

@@ -6,9 +6,8 @@ app.controller('TurnoverCtrl', ['$scope', '$http', 'stockFactory', 'stockService
   $scope.desc = true;
   $scope.asc = false;
 
-  let promise = stockService.getStocks($http);
-  promise.then( function(response) {
-    $scope.turnovers = stockFactory.symbolChange(response.data);
+  stockService.getStocks($http).then( function(turnovers) {
+    $scope.turnovers = stockFactory.symbolChange(turnovers);
   });
 
   // search click
@@ -18,14 +17,14 @@ app.controller('TurnoverCtrl', ['$scope', '$http', 'stockFactory', 'stockService
     }
 
     if($scope.date !== null) {
-      promise = stockService.searchStock($http, $scope.number, $scope.date.toISOString().slice(0, 10));
+      stockService.searchStock($http, $scope.number, $scope.date.toISOString().slice(0, 10)).then( function(turnovers) {
+        $scope.turnovers = stockFactory.symbolChange(turnovers);
+      });
     } else {
-      promise = stockService.searchStock($http, $scope.number, $scope.date);
+      stockService.searchStock($http, $scope.number, $scope.date).then( function(turnovers) {
+        $scope.turnovers = stockFactory.symbolChange(turnovers);
+      });
     }
-
-    promise.then( function(response) {
-      $scope.turnovers = stockFactory.symbolChange(response.data);
-    });
   }
 
   // export click

@@ -14,4 +14,12 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require angular
+//= require angular-rails-templates
+
+//= require_tree ../templates
+//= require app
+//= require stocks/sort_factory
+//= require stocks/stocks_service
+//= require stocks/stocks_directive
+//= require stocks/stocks_controllers
 //= require_tree .

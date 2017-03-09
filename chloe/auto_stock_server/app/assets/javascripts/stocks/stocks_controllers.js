@@ -1,32 +1,3 @@
-var app = angular.module('turnoversApp', []);
-
-app.factory('sortFactory', function() {
-  return {
-    desc: function(sortItem, dataList) {
-      dataList = dataList.sort(function (a, b) {
-        return b[sortItem] > a[sortItem] ? 1 : -1;
-      });
-      return dataList;
-    },
-    asc: function(sortItem, dataList) {
-      dataList = dataList.sort(function (a, b) {
-        return a[sortItem] > b[sortItem] ? 1 : -1;
-      });
-      return dataList;
-    }
-  }
-});
-
-app.service('stockService', function() {
-  this.getStocks = function($http) {
-    return $http.get('/turnovers.json');
-  };
-
-  this.searchStock = function($http, number, date) {
-    return $http.get('/turnovers.json?number=' + number + '&date=' + date);
-  };
-});
-
 app.controller('TurnoverCtrl', ['$scope', '$http', 'sortFactory', 'stockService', function($scope, $http, sortFactory, stockService) {
   $scope.turnovers = [];
   // initialize number and date search input value
@@ -42,6 +13,10 @@ app.controller('TurnoverCtrl', ['$scope', '$http', 'sortFactory', 'stockService'
 
   // search click
   $scope.search = function() {
+    if($scope.date === null && $scope.number === null) {
+      $scope.date = new Date();
+    }
+
     if($scope.date !== null) {
       promise = stockService.searchStock($http, $scope.number, $scope.date.toISOString().slice(0, 10));
     } else {

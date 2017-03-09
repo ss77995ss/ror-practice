@@ -1,44 +1,4 @@
 <div class='turnovers' ng-app='turnoversApp' ng-controller='TurnoverCtrl'>
-  <div class='search'>
-    <form>
-      <label class='numberLabel'>搜尋代號 ：</label>
-      <input id='numberInput' class='numberInput' type='number' min='0' ng-model='number'>
-
-      <label class='dateLabel'>搜尋日期 ：</label>
-      <input id='dateInput' class='dateInput' type='date' ng-model='date'>
-      <button class='searchBtn' ng-click='search()'>search</button>
-    </form>
-  </div>
-  <table class='table table-bordered table-striped table-hover'>
-    <thead>
-      <tr>
-        <th class='id text-center'>排</th>
-        <th class='number text-center'>代號 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('number')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('number')" ng-show='asc' ng-hide='!asc'></i></button></th>
-        <th class='name text-center'>名稱 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('name')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('name')" ng-show='asc' ng-hide='!asc'></i></button></th>
-        <th class='opening_price text-center'>開盤價 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('opening_price')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('opening_price')" ng-show='asc' ng-hide='!asc'></i></button></th>
-        <th class='highest_price text-center'>最高價 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('highest_price')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('highest_price')" ng-show='asc' ng-hide='!asc'></i></button></th>
-        <th class='lowest_price text-center'>最低價 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('lowest_price')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('lowest_price')" ng-show='asc' ng-hide='!asc'></i></button></th>
-        <th class='closing_yesterday text-center'>昨收盤 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('closing_yesterday')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('closing_yesterday')" ng-show='asc' ng-hide='!asc'></i></button></th>
-        <th class='closing_today text-center'>今收盤 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('closing_today')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('closing_today')" ng-show='asc' ng-hide='!asc'></i></button></th>
-        <th class='volumn text-center'>成交量 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('volumn')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('volumn')" ng-show='asc' ng-hide='!asc'></i></button></th>
-        <th class='change text-center'>漲跌 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('change')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('change')" ng-show='asc' ng-hide='!asc'></i></button></th>
-        <th class='quote_change text-center'>漲跌幅 <button><i class='fa fa-caret-down' aria-hidden='true' ng-click="sortDesc('quote_change')" ng-show='desc' ng-hide='!desc'></i><i class='fa fa-caret-up' aria-hidden='true' ng-click="sortAsc('quote_change')" ng-show='asc' ng-hide='!asc'></i></button></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat='turnover in turnovers'>
-        <td class='id text-center'>{{ $index + 1 }}</td>
-        <td class='number text-center'>{{ turnover.number }}</td>
-        <td class='name text-center'><a ng-href='{{ turnover.hyper_link }}'>{{ turnover.name }}</a></td>
-        <td class='opening_price text-center'>{{ turnover.opening_price }}</td>
-        <td class='highest_price text-center'>{{ turnover.highest_price }}</td>
-        <td class='lowest_price text-center'>{{ turnover.lowest_price }}</td>
-        <td class='closing_yesterday text-center'>{{ turnover.closing_yesterday }}</td>
-        <td class='closing_today text-center'>{{ turnover.closing_today }}</td>
-        <td class='volumn blue text-center'>{{ turnover.volumn }}</td>
-        <td class='change text-center {{turnover.colorClass}}'>{{ turnover.symbol }}{{ turnover.changeNum }}</td>
-        <td class='quote_change text-center'>{{ turnover.quote_change }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <search stock-number='number' search-date='date' search-function='search()'></search>
+  <stock-table desc='desc' asc='asc' turnovers='turnovers' sortDesc='sortDesc()' sortAsc='sortAsc()'></stock-table>
 </div>

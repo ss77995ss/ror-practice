@@ -20,8 +20,15 @@ class StockController < ApplicationController
               .where("(date(created_at) = ? #{operator} stock_code = ?)", date, code)
               .order("#{params[:sort]} #{params[:direction]}")
 
-    return unless @stocks.empty?
-    flash[:alert] = "there is no data with date = #{date} and stock code = #{code}"
-    redirect_to stock_url
+    if @stocks.empty?
+      flash[:alert] = "there is no data with date = #{date} and stock code = #{code}"
+      redirect_to root_url
+    else
+      respond_to do |format|
+        format.html
+        format.json { render json: @stocks.to_json }
+        format.csv { send_data @stocks.to_csv }
+      end
+    end
   end
 end

@@ -1,2 +1,2 @@
 <search-form></search-form>
-<%= render :partial => 'table'%>
+<stock-table stocks='<%=@stocks.to_json%>' sortType='vm.sortType' sortReverse='vm.sortReverse'></stock-table>

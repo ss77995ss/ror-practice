@@ -5,6 +5,8 @@ angular
   .controller('StockController', function($window, SEARCH_URL) {
     var vm = this;
 
+    vm.sortType = 'rank';
+    vm.sortReverse = false;
     vm.date = '';
     vm.code = '';
 

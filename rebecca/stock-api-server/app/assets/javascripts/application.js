@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
+//= require stock/stock.module.js
 //= require_tree .

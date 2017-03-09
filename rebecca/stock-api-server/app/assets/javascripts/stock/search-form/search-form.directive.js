@@ -5,6 +5,6 @@ angular
       restrict: 'E',
       controller: 'StockController',
       controllerAs: 'vm',
-      templateUrl: 'assets/stock/search-form/search-form.template.html'
+      templateUrl: 'assets/stock/search-form/search-form.template.slim'
     };
   });

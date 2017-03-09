@@ -10,6 +10,6 @@ angular
         sortType: '=sortType',
         sortReverse: '=sortReverse'
       },
-      templateUrl: 'assets/stock/stock-table/stock.template.html',
+      templateUrl: 'assets/stock/stock-table/stock.template.slim',
     };
   });

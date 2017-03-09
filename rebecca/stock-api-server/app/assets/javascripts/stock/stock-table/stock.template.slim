@@ -1,0 +1,70 @@
+table.table
+  thead: tr
+    th.text-center
+      a href="#" ng-click="vm.sortType = 'rank'; vm.sortReverse = !vm.sortReverse" 
+        |排名
+        span ng-show="vm.sortType === 'rank'" class="glyphicon glyphicon-filter"
+    th
+      a href="#" ng-click="vm.sortType = 'stock_code'; vm.sortReverse = !vm.sortReverse" 
+        |代號
+        span ng-show="vm.sortType === 'stock_code'" class="glyphicon glyphicon-filter"
+    th
+      a href="#" ng-click="vm.sortType = 'stock_name'; vm.sortReverse = !vm.sortReverse" 
+        |名稱
+        span ng-show="vm.sortType === 'stock_name'" class="glyphicon glyphicon-filter"
+    th
+      a href="#" ng-click="vm.sortType = 'opening_price'; vm.sortReverse = !vm.sortReverse"
+        |開盤價
+        span ng-show="vm.sortType === 'opening_price'" class="glyphicon glyphicon-filter"
+    th
+      a href="#" ng-click="vm.sortType = 'highest_price'; vm.sortReverse = !vm.sortReverse"
+        |最高價
+        span ng-show="vm.sortType === 'highest_price'" class="glyphicon glyphicon-filter"
+    th
+      a href="#" ng-click="vm.sortType = 'lowest_price'; vm.sortReverse = !vm.sortReverse"
+        |最低價
+        span ng-show="vm.sortType === 'lowest_price'" class="glyphicon glyphicon-filter"
+    th
+      a href="#" ng-click="vm.sortType = 'ytd_closing_price'; vm.sortReverse = !vm.sortReverse"
+        |昨收盤
+        span ng-show="vm.sortType === 'ytd_closing_price'" class="glyphicon glyphicon-filter"
+    th
+      a href="#" ng-click="vm.sortType = 'closing_price'; vm.sortReverse = !vm.sortReverse"
+        |今收盤
+        span ng-show="vm.sortType === 'closing_price'" class="glyphicon glyphicon-filter"
+    th
+      a href="#" ng-click="vm.sortType = 'turnover'; vm.sortReverse = !vm.sortReverse"
+        |成交量
+        span ng-show="vm.sortType === 'turnover'" class="glyphicon glyphicon-filter"
+    th
+      a href="#" ng-click="vm.sortType = 'change'; vm.sortReverse = !vm.sortReverse"
+        |漲跌
+        span ng-show="vm.sortType === 'change'" class="glyphicon glyphicon-filter"
+    th
+      a href="#" ng-click="vm.sortType = 'change_range'; vm.sortReverse = !vm.sortReverse"
+        |漲跌幅
+        span ng-show="vm.sortType === 'change_range'" class="glyphicon glyphicon-filter"
+
+  tr ng-repeat='stock in stocks | orderBy:vm.sortType:vm.sortReverse'
+    td.text-center
+      |{{ stock.rank }}
+    td 
+      |{{ stock.stock_code }}
+    td 
+      |{{ stock.stock_name }}
+    td 
+      |{{ stock.opening_price }}
+    td 
+      |{{ stock.highest_price }}
+    td 
+      |{{ stock.lowest_price }}
+    td 
+      |{{ stock.ytd_closing_price }}
+    td 
+      |{{ stock.closing_price }}
+    td 
+      |{{ stock.turnover | number }}
+    td ng-class="({{stock.change}} < 0) ? 'text-green' : ({{stock.change}}>0) ? 'text-red' : ''" 
+      |{{ stock.change | iconFormat }}
+    td 
+      |{{ stock.change_range }}

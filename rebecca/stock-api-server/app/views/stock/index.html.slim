@@ -1,0 +1,7 @@
+search-form
+
+button
+  a href= stock_url(format: :csv) 
+    |save page
+
+stock-table (stocks= @stocks.to_json sortType='vm.sortType' sortReverse='vm.sortReverse')

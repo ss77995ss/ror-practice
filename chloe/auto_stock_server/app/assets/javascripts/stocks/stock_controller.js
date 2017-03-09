@@ -1,4 +1,4 @@
-app.controller('TurnoverCtrl', ['$scope', '$http', 'sortFactory', 'stockService', function($scope, $http, sortFactory, stockService) {
+app.controller('TurnoverCtrl', ['$scope', '$http', 'stockFactory', 'stockService', function($scope, $http, stockFactory, stockService) {
   $scope.turnovers = [];
   // initialize number and date search input value
   $scope.number = null;
@@ -8,7 +8,7 @@ app.controller('TurnoverCtrl', ['$scope', '$http', 'sortFactory', 'stockService'
 
   let promise = stockService.getStocks($http);
   promise.then( function(response) {
-    $scope.turnovers = stockChangeSymbol(response.data);
+    $scope.turnovers = stockFactory.symbolChange(response.data);
   });
 
   // search click
@@ -24,7 +24,7 @@ app.controller('TurnoverCtrl', ['$scope', '$http', 'sortFactory', 'stockService'
     }
 
     promise.then( function(response) {
-      $scope.turnovers = stockChangeSymbol(response.data);
+      $scope.turnovers = stockFactory.symbolChange(response.data);
     });
   }
 
@@ -32,31 +32,13 @@ app.controller('TurnoverCtrl', ['$scope', '$http', 'sortFactory', 'stockService'
   $scope.sortDesc = function(column) {
     $scope.desc = false;
     $scope.asc = true;
-    $scope.turnovers = sortFactory.desc(column, $scope.turnovers);
+    $scope.turnovers = stockFactory.desc(column, $scope.turnovers);
   }
 
   // asc sort click
   $scope.sortAsc = function(column) {
     $scope.desc = true;
     $scope.asc = false;
-    $scope.turnovers = sortFactory.asc(column, $scope.turnovers);
+    $scope.turnovers = stockFactory.asc(column, $scope.turnovers);
   }
 }]);
-
-function stockChangeSymbol(turnovers) {
-  for (let i = 0; i < turnovers.length; i += 1) {
-    turnovers[i].changeNum = Math.abs(turnovers[i].change);
-    if(turnovers[i].change < 0) {
-      turnovers[i].symbol = '▼ ';
-      turnovers[i].colorClass = 'down'
-    } else if(turnovers[i].change === 0) {
-      turnovers[i].symbol = '- ';
-      turnovers[i].colorClass = ''
-    } else {
-      turnovers[i].symbol = '▲ ';
-      turnovers[i].colorClass = 'up'
-    }
-  }
-
-  return turnovers;
-}

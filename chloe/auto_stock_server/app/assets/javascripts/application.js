@@ -18,8 +18,8 @@
 
 //= require_tree ../templates
 //= require app
-//= require stocks/sort_factory
-//= require stocks/stocks_service
-//= require stocks/stocks_directive
-//= require stocks/stocks_controllers
+//= require stocks/stock_factory
+//= require stocks/stock_service
+//= require stocks/stock_directive
+//= require stocks/stock_controller
 //= require_tree .

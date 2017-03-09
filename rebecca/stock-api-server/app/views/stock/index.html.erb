@@ -1,14 +1,4 @@
-<%= form_tag '/search', method: :get do %>
-  <div>
-    <%= label_tag :日期 %>
-    <%= text_field_tag :date %>
-  </div>
-  <div>
-    <%= label_tag :股票代號 %>
-    <%= text_field_tag :code %>
-    <%= submit_tag :搜尋 %>
-  </div>
-<% end %>
+<search-form></search-form>
 
 <%= button_to "save page", stock_url(format: :csv), method: :get %>
 

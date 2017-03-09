@@ -28,6 +28,11 @@ app.controller('TurnoverCtrl', ['$scope', '$http', 'stockFactory', 'stockService
     });
   }
 
+  // export click
+  $scope.export = function() {
+    stockFactory.exportStocks($scope.turnovers)
+  }
+
   // desc sort click
   $scope.sortDesc = function(column) {
     $scope.desc = false;

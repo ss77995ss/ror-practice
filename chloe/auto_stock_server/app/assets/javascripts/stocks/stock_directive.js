@@ -5,7 +5,8 @@ app.directive('search', function() {
     scope: {
       stockNumber: '=',
       searchDate: '=',
-      searchFunction: '&'
+      searchFunction: '&',
+      exportFunction: '&'
     },
     templateUrl: 'search.html'
   };

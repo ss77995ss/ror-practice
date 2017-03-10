@@ -75,7 +75,7 @@ RSpec.describe StockController, type: :controller do
         get :search, params = { date: '', code: '3333' }
 
         expect(flash[:alert]).to eq("there is no data with date =  and stock code = #{params[:code]}")
-        expect(response).to redirect_to stock_url
+        expect(response).to redirect_to root_url
       end
     end
 

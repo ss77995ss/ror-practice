@@ -1,17 +1,19 @@
 class TurnoversController < ApplicationController
   def index
+    @turnovers = Turnover.where(date: Time.new.in_time_zone.to_date.to_s).order('volumn DESC')
+  end
+
+  def search
     date = date_init(params[:date])
     number = number_init(params[:number])
 
     @turnovers =
       if !date.blank? && !number.blank?
         Turnover.where('number like ? and date = ?', "%#{number}%", date).order('volumn DESC')
-      elsif !date.blank?
+      elsif !date.blank? && number.blank?
         Turnover.where(date: date).order('volumn DESC')
-      elsif !number.blank?
-        Turnover.where('number like ?', "%#{number}%").order('volumn DESC')
       else
-        Turnover.where(date: Time.new.in_time_zone.to_date.to_s).order('volumn DESC')
+        Turnover.where('number like ?', "%#{number}%").order('volumn DESC')
       end
 
     respond_to do |format|

@@ -5,15 +5,15 @@ RSpec.describe TurnoversController, type: :controller do
   describe 'GET #index' do
     context 'when query data default successfully' do
       before(:each) do
-        allow(controller).to receive(:date_init).and_return('')
-        allow(controller).to receive(:number_init).and_return('')
         get :index
       end
 
       it { expect(response).to have_http_status(200) }
       it { expect(response).to render_template('index') }
     end
+  end
 
+  describe 'GET #search' do
     context 'when query data of specified stock number and date' do
       before(:each) do
         allow(controller).to receive(:date_init).and_return('2017-02-17')

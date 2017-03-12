@@ -1,14 +1,12 @@
 app.controller('TurnoverCtrl', ['$scope', '$http', 'stockFactory', 'stockService', function($scope, $http, stockFactory, stockService) {
-  $scope.turnovers = [];
-  // initialize number and date search input value
-  $scope.number = null;
-  $scope.date = new Date();
-  $scope.desc = true;
-  $scope.asc = false;
-
-  stockService.getStocks($http).then( function(turnovers) {
-    $scope.turnovers = stockFactory.symbolChange(turnovers);
-  });
+  // initialize
+  $scope.init = function(turnoversStr) {
+    $scope.turnovers = stockFactory.symbolChange(JSON.parse(turnoversStr));
+    $scope.number = null;
+    $scope.date = new Date();
+    $scope.desc = true;
+    $scope.asc = false;
+  }
 
   // search click
   $scope.search = function() {

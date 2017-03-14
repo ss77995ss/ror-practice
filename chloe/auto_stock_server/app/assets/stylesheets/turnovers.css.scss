@@ -25,6 +25,7 @@ body {
       margin-top: 20px;
       margin-bottom: 20px;
       form {
+        position: relative;
         input, .searchBtn, .exportBtn {
           padding: 4px 10px;
           border: solid #000 1px;
@@ -41,6 +42,10 @@ body {
         }
         .dateLabel, .searchBtn, .exportBtn {
           margin-left: 20px;
+        }
+        .exportBtn {
+          position: absolute;
+          right: 0;
         }
       }
     }

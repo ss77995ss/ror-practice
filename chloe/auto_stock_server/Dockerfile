@@ -2,9 +2,12 @@ FROM ruby:2.1
 
 MAINTAINER Chloe
 
+ARG NODE_ENV
+
 # make sure apt is up to date
 RUN apt-get update
 RUN apt-get install sudo -y
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 RUN sudo apt-get install nodejs -y
 RUN apt-get install vim -y
 RUN apt-get install cron -y

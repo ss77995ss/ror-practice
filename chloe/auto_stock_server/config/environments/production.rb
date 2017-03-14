@@ -65,8 +65,10 @@ AutoStockServer::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  # automatically update data
+  # automatically update data if table exists
   config.after_initialize do
-    Turnover.insert_to_db if Turnover.check_for_insert_turnovers
+    if ActiveRecord::Base.connection.table_exists? 'turnovers'
+      Turnover.insert_to_db if Turnover.check_for_insert_turnovers
+    end
   end
 end

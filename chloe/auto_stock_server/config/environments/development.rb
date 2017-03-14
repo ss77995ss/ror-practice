@@ -35,8 +35,10 @@ AutoStockServer::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  # automatically update data
+  # automatically update data if table exists
   config.after_initialize do
-    Turnover.insert_to_db if Turnover.check_for_insert_turnovers
+    if ActiveRecord::Base.connection.table_exists? 'turnovers'
+      Turnover.insert_to_db if Turnover.check_for_insert_turnovers
+    end
   end
 end

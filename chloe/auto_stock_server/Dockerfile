@@ -5,6 +5,7 @@ MAINTAINER Chloe
 # make sure apt is up to date
 RUN apt-get update
 RUN apt-get install sudo -y
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 RUN sudo apt-get install nodejs -y
 RUN apt-get install vim -y
 RUN apt-get install cron -y
@@ -22,6 +23,7 @@ COPY Gemfile* ./
 RUN sudo bundle install
 
 EXPOSE 3000
+EXPOSE 9876
 
 # docker build --build-arg NODE_ENV="development" -t chloe/ror-practice-dev .
 # docker exec -it ror-practice-dev /bin/bash

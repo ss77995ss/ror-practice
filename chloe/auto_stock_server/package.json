@@ -1,0 +1,22 @@
+{
+  "name": "auto_stock_server",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "node_modules/.bin/karma start"
+  },
+  "author": "chloe",
+  "devDependencies": {
+    "browserify": "^14.1.0",
+    "chai": "^3.5.0",
+    "jasmine": "^2.5.3",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.5.0",
+    "karma-browserify": "^5.1.1",
+    "karma-chai": "^0.1.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-mocha-reporter": "^2.2.2",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-requirejs": "^1.1.0"
+  }
+}

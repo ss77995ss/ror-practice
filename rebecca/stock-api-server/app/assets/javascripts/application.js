@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
+//= require angular-route
 //= require stock/stock.module.js
 //= require_tree .

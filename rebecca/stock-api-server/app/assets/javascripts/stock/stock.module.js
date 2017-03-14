@@ -1,1 +1,1 @@
-angular.module('stockApp', []);
+angular.module('stockApp', ['ngRoute']);

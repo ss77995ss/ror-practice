@@ -7,9 +7,8 @@ if [ "$NODE_ENV" == 'production' ]; then
   git checkout dev/chloe
   cd chloe/auto_stock_server
   # move data to up layer
-  mv -f ./* ../../
-  mv -f ./.* ../../
-  cd ../../
+  mv -f ./* ../../../
+  mv -f ./.* ../../../
+  cd ../../../
   rm -rf ror-practice
-  bundle install
 fi

@@ -22,7 +22,7 @@ angular
   .controller('TableController', function($location) {
     var vm = this;
     vm.$location = $location;
-    vm.isEmpty = function(value) {
-      return angular.equals({}, value);
+    vm.paramIsEmpty = function() {
+      return angular.equals({}, $location.search());
     };
   });

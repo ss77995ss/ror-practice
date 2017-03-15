@@ -1,3 +1,5 @@
+/* eslint no-param-reassign: 0 */
+
 angular
   .module('stockApp')
   .directive('stockTable', function() {
@@ -11,5 +13,8 @@ angular
         sortReverse: '=sortReverse'
       },
       templateUrl: 'assets/stock/stock-table/stock.template.slim',
+      link: function(scope) {
+        scope.vm.stocks = scope.stocks;
+      }
     };
   });

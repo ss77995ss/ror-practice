@@ -45,7 +45,7 @@ table.table
         |漲跌幅
         span ng-show="vm.sortType === 'change_range'" class="glyphicon glyphicon-filter"
 
-  tr ng-repeat='stock in stocks | orderBy:vm.sortType:vm.sortReverse'
+  tr ng-repeat='stock in vm.stocks | orderBy:vm.sortType:vm.sortReverse'
     td.text-center
       |{{ stock.rank }}
     td 

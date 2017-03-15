@@ -18,5 +18,6 @@ if [ $RAILS_ENV == production ]; then
 
 else
   nohup docker run -it -p 3000:3000 -v $PWD:/usr/src/app -e RAILS_ENV=$RAILS_ENV --name ror-practice -d rebecca518/ror-practice /bin/bash
+  nohup docker exec -it ror-practice rake db:migrate
   docker exec -it ror-practice /bin/bash
 fi

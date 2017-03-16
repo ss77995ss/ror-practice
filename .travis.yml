@@ -1,0 +1,11 @@
+language: ruby
+
+rvm:
+ - 2.1.5
+
+branches:
+  only:
+    - dev/rebecca
+
+before_install:
+  - cd ./rebecca/stock-api-server/

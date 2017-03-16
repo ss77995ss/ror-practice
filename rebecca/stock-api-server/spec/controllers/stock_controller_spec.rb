@@ -12,7 +12,7 @@ RSpec.describe StockController, type: :controller do
 
     it 'assigns @stocks' do
       create(:stock, created_at: Date.yesterday)
-      stock_today = create(:stock)
+      stock_today = create(:stock, created_at: Date.current)
       get :index
 
       expect(assigns[:stocks]).to eq([stock_today])

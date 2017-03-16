@@ -1,7 +1,7 @@
 class StockController < ApplicationController
   def index
     @stocks = Stock
-              .where('date(created_at) = ?', Date.today)
+              .where("created_at > ? and created_at <= ?", Time.now.beginning_of_day, Time.now.end_of_day)
               .order("#{params[:sort]} #{params[:direction]}")
 
     respond_to do |format|

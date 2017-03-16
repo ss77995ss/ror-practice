@@ -1,0 +1,17 @@
+language: ruby
+
+rvm:
+ - 2.1.5
+
+branches:
+  only:
+    - dev/chloe
+
+before_install:
+  - cd ./chloe/stock-api-server/
+
+before_script:
+  - bundle exec rake db:test:prepare
+
+script:
+  - bundle exec rspec

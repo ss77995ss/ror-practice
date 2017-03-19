@@ -11,7 +11,7 @@ before_install:
   - cd ./chloe/auto_stock_server/
 
 before_script:
-  - bundle exec rake db:test:prepare
+  - bundle exec rake db:migrate RAILS_ENV=test
 
 script:
   - bundle exec rspec

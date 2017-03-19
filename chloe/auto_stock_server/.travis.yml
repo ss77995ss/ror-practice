@@ -8,7 +8,7 @@ branches:
     - dev/chloe
 
 before_install:
-  - cd ./chloe/stock-api-server/
+  - cd ./chloe/auto_stock_server/
 
 before_script:
   - bundle exec rake db:test:prepare

@@ -1,0 +1,10 @@
+search-form
+
+div.set-right
+  button
+    a href= stock_url(format: :csv) 
+      |儲存檔案
+
+ng-view
+div ng-controller='TableController as tCtrl'
+  stock-table (ng-show='tCtrl.paramIsEmpty()' stocks= @stocks.to_json sortType='vm.sortType' sortReverse='vm.sortReverse')

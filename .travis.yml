@@ -1,0 +1,17 @@
+language: ruby
+
+rvm:
+ - 2.1.5
+
+branches:
+  only:
+    - dev/rebecca
+
+before_install:
+  - cd ./rebecca/stock-api-server/
+
+before_script:
+  - bundle exec rake db:migrate RAILS_ENV=test
+
+script:
+  - bundle exec rspec

@@ -16,7 +16,6 @@ app.directive('stockTable', function() {
   return {
     restrict: 'E',
     replace: true,
-    controller: 'TurnoverCtrl',
     scope: {
       desc: '=',
       asc: '=',

@@ -25,6 +25,7 @@ COPY Gemfile* ./
 RUN sudo bundle install
 
 EXPOSE 3000
+EXPOSE 9876
 
 # docker build --build-arg NODE_ENV="development" -t chloe/ror-practice-dev .
 # docker exec -it ror-practice-dev /bin/bash

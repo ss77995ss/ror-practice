@@ -6,54 +6,54 @@ table.table.table-bordered.table-striped.table-hover
       th.number.text-center
         | 代號
         button
-          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc('number')" ng-show='desc' ng-hide='!desc'
-          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc('number')" ng-show='asc' ng-hide='!asc'
+          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc({column: 'number'})" ng-show='desc' ng-hide='!desc'
+          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc({column: 'number'})" ng-show='asc' ng-hide='!asc'
       th.name.text-center
         | 名稱
         button
-          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc('name')" ng-show='desc' ng-hide='!desc'
-          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc('name')" ng-show='asc' ng-hide='!asc'
+          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc({column: 'name'})" ng-show='desc' ng-hide='!desc'
+          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc({column: 'name'})" ng-show='asc' ng-hide='!asc'
       th.opening_price.text-center
         | 開盤價
         button
-          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc('opening_price')" ng-show='desc' ng-hide='!desc'
-          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc('opening_price')" ng-show='asc' ng-hide='!asc'
+          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc({column: 'opening_price'})" ng-show='desc' ng-hide='!desc'
+          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc({column: 'opening_price'})" ng-show='asc' ng-hide='!asc'
 
       th.highest_price.text-center
         | 最高價
         button
-          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc('highest_price')" ng-show='desc' ng-hide='!desc'
-          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc('highest_price')" ng-show='asc' ng-hide='!asc'
+          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc({column: 'highest_price'})" ng-show='desc' ng-hide='!desc'
+          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc({column: 'highest_price'})" ng-show='asc' ng-hide='!asc'
       th.lowest_price.text-center
         | 最低價
         button
-          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc('lowest_price')" ng-show='desc' ng-hide='!desc'
-          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc('lowest_price')" ng-show='asc' ng-hide='!asc'
+          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc({column: 'lowest_price'})" ng-show='desc' ng-hide='!desc'
+          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc({column: 'lowest_price'})" ng-show='asc' ng-hide='!asc'
       th.closing_yesterday.text-center
         | 昨收盤
         button
-          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc('closing_yesterday')" ng-show='desc' ng-hide='!desc'
-          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc('closing_yesterday')" ng-show='asc' ng-hide='!asc'
+          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc({column: 'closing_yesterday'})" ng-show='desc' ng-hide='!desc'
+          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc({column: 'closing_yesterday'})" ng-show='asc' ng-hide='!asc'
       th.closing_today.text-center
         | 今收盤
         button
-          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc('closing_today')" ng-show='desc' ng-hide='!desc'
-          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc('closing_today')" ng-show='asc' ng-hide='!asc'
+          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc({column: 'closing_today'})" ng-show='desc' ng-hide='!desc'
+          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc({column: 'closing_today'})" ng-show='asc' ng-hide='!asc'
       th.volumn.text-center
         | 成交量
         button
-          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc('volumn')" ng-show='desc' ng-hide='!desc'
-          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc('volumn')" ng-show='asc' ng-hide='!asc'
+          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc({column: 'volumn'})" ng-show='desc' ng-hide='!desc'
+          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc({column: 'volumn'})" ng-show='asc' ng-hide='!asc'
       th.change.text-center
         | 漲跌
         button
-          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc('change')" ng-show='desc' ng-hide='!desc'
-          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc('change')" ng-show='asc' ng-hide='!asc'
+          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc({column: 'change'})" ng-show='desc' ng-hide='!desc'
+          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc({column: 'change'})" ng-show='asc' ng-hide='!asc'
       th.quote_change.text-center
         | 漲跌幅
         button
-          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc('quote_change')" ng-show='desc' ng-hide='!desc'
-          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc('quote_change')" ng-show='asc' ng-hide='!asc'
+          i.fa.fa-caret-down aria-hidden='true' ng-click="sortDesc({column: 'quote_change'})" ng-show='desc' ng-hide='!desc'
+          i.fa.fa-caret-up aria-hidden='true' ng-click="sortAsc({column: 'quote_change'})" ng-show='asc' ng-hide='!asc'
   tbody
     tr ng-repeat='turnover in turnovers'
       td.id.text-center

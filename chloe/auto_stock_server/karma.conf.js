@@ -8,11 +8,11 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['chai', 'mocha', 'browserify'],
+    frameworks: ['chai', 'jasmine', 'browserify'],
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
     browserify: {
       debug: true,
@@ -29,10 +29,10 @@ module.exports = function(config) {
 
     plugins: [
       'karma-chai',
-      'karma-mocha',
+      'karma-jasmine',
       'karma-browserify',
       'karma-mocha-reporter',
-      'karma-chrome-launcher'
+      'karma-phantomjs-launcher'
     ],
 
     preprocessors: {

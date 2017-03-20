@@ -38,7 +38,7 @@ RSpec.describe 'turnovers/index.html.slim', type: :view do
     end
 
     it 'should have have these attributes' do
-      expect(response).to have_css("stock-table[desc='desc'][asc='asc'][turnovers='turnovers'][sortdesc='sortDesc()'][sortasc='sortAsc()']")
+      expect(response).to have_css("stock-table[desc='desc'][asc='asc'][turnovers='turnovers'][sort-desc='sortDesc(column)'][sort-asc='sortAsc(column)']")
     end
   end
 end

@@ -5,34 +5,29 @@ import './components/navbar/nabvar.css';
 import './components/turnover/turnoverList/turnoverList.css';
 import './app.css';
 
-class AppCtrl {
-    constructor(turnoverService) {
-      this.github_url = 'https://github.com/waynelai614/ror-practice/tree/dev/wayne/wayne/stock_api_server';
-      this.data_source_url = 'http://stock.wearn.com/qua.asp';
-      this.turnoverService = turnoverService;
-      this.turnovers = [];
-    }
+class AppComponent {
+  constructor(turnoverService) {
+    this.github_url = 'https://github.com/waynelai614/ror-practice/tree/dev/wayne/wayne/stock_api_server';
+    this.data_source_url = 'http://stock.wearn.com/qua.asp';
+    this.turnoverService = turnoverService;
+  }
 
-    getAvaliableDates() {
-      this.turnoverService
-        .getDates()
-        .then(response => this.avaliable_date = response.data);
-    }
+  $onInit() {
+    this.turnovers = [];
+    this.avaliable_date = [];
 
-    getTurnovers() {
-      this.turnoverService
-        .getData()
-        .then(response => this.turnovers = response.data);
-    }
+    this.turnoverService.getTodaysTurnovers().then(response => this.turnovers = response.data);
+    this.turnoverService.getDates().then(response => this.avaliable_date = response.data);
+  }
 
-    $onInit() {
-      this.getAvaliableDates();
-      this.getTurnovers();
-    }
+  getByParams({ params }) {
+    if (!params) return;
+    this.turnoverService.getByParams(params).then(response => this.turnovers = response.data);
+  }
 }
 
 export default {
   template: require('./app.html'),
-  controller: AppCtrl,
+  controller: AppComponent,
   controllerAs: 'app'
 };

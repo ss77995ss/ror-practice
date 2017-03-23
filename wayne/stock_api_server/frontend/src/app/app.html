@@ -5,7 +5,11 @@
   <div class="container">
     <div class="columns">
       <div class="column is-7">
-        <turnover-form dates="app.avaliable_date"></turnover-form>
+        <turnover-form
+          dates="app.avaliable_date"
+          on-get-by-params="app.getByParams($event);"
+        >  
+        </turnover-form>
       </div>
     </div>
     <div ng-if="app.turnovers.length > 0">

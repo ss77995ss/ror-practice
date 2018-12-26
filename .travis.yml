@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+  - 2.3.0
+before_install:
+  - cd ./sean/stock_api_server/
+script:
+  - bundle exec rspec
